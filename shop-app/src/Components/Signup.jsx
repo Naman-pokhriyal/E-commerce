@@ -52,4 +52,13 @@ export default function Signup() {
             onChange={(e) => {
               setpass(e.target.value);
             }}
-          /
+          />
+        </div>
+        <div className="form-group">
+          <button type="submit">Sign Up</button>
+        </div>
+      </form>
+      {msg}
+    </div>
+  );
+}

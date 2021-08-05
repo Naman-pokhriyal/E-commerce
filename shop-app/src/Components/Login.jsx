@@ -43,4 +43,11 @@ export function Login() {
         </div>
         <div className="form-group">
           <button type="submit">Login</button>
-        <
+        </div>
+      </form>
+      {msg}
+    </div>
+  );
+}
+
+export default Login;
