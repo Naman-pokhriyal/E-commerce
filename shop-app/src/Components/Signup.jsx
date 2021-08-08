@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import Axios from "axios";
 
@@ -22,6 +23,15 @@ export default function Signup() {
       }
     });
   };
+
+  useEffect(() => {
+    Axios.get("http://localhost:3001/login").then((res) => {
+      if (res.data.loggedIn) {
+        history.push("/");
+      }
+      // console.log(res.data.user._id);
+    });
+  }, []);
 
   return (
     <div>
@@ -58,6 +68,9 @@ export default function Signup() {
           <button type="submit">Sign Up</button>
         </div>
       </form>
+      <Link to="/login">
+        <p>Have an Account?</p>
+      </Link>
       {msg}
     </div>
   );
