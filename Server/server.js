@@ -98,6 +98,7 @@ app.post("/login", async (req, res) => {
     res.send({ msg: "Fill All Fields", key: false });
   }
 });
+
 // GET
 app.get("/login", (req, res) => {
   if (req.session.user) {
@@ -105,5 +106,11 @@ app.get("/login", (req, res) => {
   } else {
     res.send({ loggedIn: false, user: { _id: false } });
   }
+});
+
+app.get("/logout", (req, res) => {
+  req.session.destroy((err) => {
+    res.send({ task: true });
+  });
 });
 app.listen(3001);

@@ -6,9 +6,9 @@ export default function Home() {
   let history = useHistory();
   const [username, setUsername] = useState("");
 
-  const ReCheck = () => {
-    Axios.get("http://localhost:3001/login").then((res) => {
-      if (!res.data.loggedIn) {
+  const LogOut = () => {
+    Axios.get("http://localhost:3001/logout").then((res) => {
+      if (!res.data.msg) {
         history.push("/login");
       }
     });
@@ -28,6 +28,7 @@ export default function Home() {
     <div>
       <h1>HOME</h1>
       <p>Welcome, {username}</p>
+      <button onClick={LogOut}>Logout</button>
     </div>
   );
 }
